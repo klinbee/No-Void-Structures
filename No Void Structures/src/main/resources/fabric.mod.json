@@ -9,7 +9,7 @@
   ],
   "contact": {},
   "license": "MIT",
-  "icon": "assets/no_void_structures/icon.png",
+  "icon": "icon.png",
   "environment": "*",
   "entrypoints": {
   },
