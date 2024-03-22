@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 public class ShiftableStructurePieceMixin {
 
     @Redirect(method = "Lnet/minecraft/structure/ShiftableStructurePiece;adjustToAverageHeight(Lnet/minecraft/world/WorldAccess;Lnet/minecraft/util/math/BlockBox;I)Z", at = @At(value = "INVOKE", target = "Lnet/minecraft/util/math/BlockPos;getY()I"))
-    protected int desertTempleVoidReMover(BlockPos instance) {
+    protected int no_void_structures_desertTempleVoidReMover_SSP(BlockPos instance) {
         if (instance.getY() <= -48) {
             return -512;
         }
@@ -18,7 +18,7 @@ public class ShiftableStructurePieceMixin {
     }
 
     @Redirect(method = "Lnet/minecraft/structure/ShiftableStructurePiece;adjustToMinHeight(Lnet/minecraft/world/WorldAccess;I)Z", at = @At(value = "INVOKE", target = "Lnet/minecraft/util/math/BlockPos;getY()I"))
-    protected int jungleTempleAndSwampHutVoidReMover(BlockPos instance) {
+    protected int no_void_structures_otherTempleVoidReMover_SSP(BlockPos instance) {
         if (instance.getY() <= -48) {
             return -20000;
         }
