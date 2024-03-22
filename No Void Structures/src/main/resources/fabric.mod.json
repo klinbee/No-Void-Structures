@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "no_void_structures",
+  "version": "${version}",
+  "name": "No_void_structures",
+  "description": "Stops structures from generating in the void in sky worlds.",
+  "authors": [
+    "Quidvio"
+  ],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/no_void_structures/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "com.quidvio.no_void_structures.client.No_void_structuresClient"
+    ],
+    "main": [
+      "com.quidvio.no_void_structures.No_void_structures"
+    ]
+  },
+  "mixins": [
+    "no_void_structures.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.15.7",
+    "fabric": "*",
+    "minecraft": "1.20.4"
+  }
+}
