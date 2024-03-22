@@ -12,12 +12,6 @@
   "icon": "assets/no_void_structures/icon.png",
   "environment": "*",
   "entrypoints": {
-    "client": [
-      "com.quidvio.no_void_structures.client.No_void_structuresClient"
-    ],
-    "main": [
-      "com.quidvio.no_void_structures.No_void_structures"
-    ]
   },
   "mixins": [
     "no_void_structures.mixins.json"
