@@ -22,7 +22,7 @@ public class PoolStructurePieceMixin {
     /**
      * Stops structure pieces (E.g. village houses) from generating in the void.
      *
-     * If the y-level of generation is 16 blocks from the bottom or less. (-48 by default).
+     * If the y-level of generation is 8 blocks from the bottom or less. (-56 by default).
      * Stops void generation by not generating it and returning false.
      * Otherwise, generates as normal.
      *
@@ -42,7 +42,7 @@ public class PoolStructurePieceMixin {
      */
     @Redirect(method = "Lnet/minecraft/structure/PoolStructurePiece;generate(Lnet/minecraft/world/StructureWorldAccess;Lnet/minecraft/world/gen/StructureAccessor;Lnet/minecraft/world/gen/chunk/ChunkGenerator;Lnet/minecraft/util/math/random/Random;Lnet/minecraft/util/math/BlockBox;Lnet/minecraft/util/math/BlockPos;Z)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/structure/pool/StructurePoolElement;generate(Lnet/minecraft/structure/StructureTemplateManager;Lnet/minecraft/world/StructureWorldAccess;Lnet/minecraft/world/gen/StructureAccessor;Lnet/minecraft/world/gen/chunk/ChunkGenerator;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/util/BlockRotation;Lnet/minecraft/util/math/BlockBox;Lnet/minecraft/util/math/random/Random;Z)Z"))
     private boolean no_void_structures_stopStructurePieceVoidGen_PSP(StructurePoolElement instance, StructureTemplateManager structureTemplateManager, StructureWorldAccess structureWorldAccess, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, BlockPos blockPos, BlockPos pivot, BlockRotation blockRotation, BlockBox blockBox, Random random, boolean b) {
-        if (blockPos.getY() <= chunkGenerator.getMinimumY() + 16) {
+        if (blockPos.getY() <= chunkGenerator.getMinimumY() + 8) {
             return false;
         }
 

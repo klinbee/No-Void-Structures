@@ -16,7 +16,7 @@ public class OceanRuinGeneratorMixin {
      * Like the legacy pyramid variants, this also uses jank generation and needs special treatment.
      * Otherwise, it will rarely spread into the void.
      *
-     * If the y-level of the Ocean Ruins Piece is -48 or less.
+     * If the y-level of the Ocean Ruins Piece is -56 or less.
      * Stops void generation by setting it to a much lower y-level.
      * Otherwise, does nothing.
      *
@@ -27,7 +27,7 @@ public class OceanRuinGeneratorMixin {
      */
     @Inject(method = "Lnet/minecraft/structure/OceanRuinGenerator$Piece;getGenerationY(Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/world/BlockView;Lnet/minecraft/util/math/BlockPos;)I", at = @At("RETURN"), cancellable = true)
     private void no_void_structures_stopOceanRuinVoidGen_ORG$P(BlockPos start, BlockView world, BlockPos end, CallbackInfoReturnable<Integer> cir){
-        if (cir.getReturnValue() <= -48) {
+        if (cir.getReturnValue() <= -56) {
             cir.setReturnValue(-1024);
         }
     }

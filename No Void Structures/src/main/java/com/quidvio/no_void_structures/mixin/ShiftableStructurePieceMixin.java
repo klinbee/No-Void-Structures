@@ -15,7 +15,7 @@ public class ShiftableStructurePieceMixin {
      * Because it is a legacy structure, it uses some unique placement and requires special treatment.
      * Specifically, finds the minimum height under the generation surface to generate at.
      *
-     * If the y-level of one of the sampled surface positions is -48 or less.
+     * If the y-level of one of the sampled surface positions is -56 or less.
      * Stops void generation by changing the sampled surface y-level to a much lower y-level.
      * Otherwise, leaves the sampled surface y-level unchanged.
      *
@@ -24,7 +24,7 @@ public class ShiftableStructurePieceMixin {
      */
     @Redirect(method = "Lnet/minecraft/structure/ShiftableStructurePiece;adjustToMinHeight(Lnet/minecraft/world/WorldAccess;I)Z", at = @At(value = "INVOKE", target = "Lnet/minecraft/util/math/BlockPos;getY()I"))
     protected int no_void_structures_stopPyramidVoidGen_SSP(BlockPos instance) {
-        if (instance.getY() <= -48) {
+        if (instance.getY() <= -56) {
             return -1024;
         }
         return instance.getY();
@@ -36,7 +36,7 @@ public class ShiftableStructurePieceMixin {
      * Again legacy structure shenanigans. Typically this is used by Jungle Pyramids as well, but the JungleTempleGeneratorMixin changes this.
      * Specifically, this finds the average terrain height under the structure to generate at.
      *
-     * If the y-level of one of the sampled surface positions is -48 or less.
+     * If the y-level of one of the sampled surface positions is -56 or less.
      * Stops void generation by changing the sampled surface y-level to a much, much lower y-level. (To offset the average).
      * Otherwise, leaves the sampled surface y-level unchanged.
      *
@@ -45,7 +45,7 @@ public class ShiftableStructurePieceMixin {
      */
     @Redirect(method = "Lnet/minecraft/structure/ShiftableStructurePiece;adjustToAverageHeight(Lnet/minecraft/world/WorldAccess;Lnet/minecraft/util/math/BlockBox;I)Z", at = @At(value = "INVOKE", target = "Lnet/minecraft/util/math/BlockPos;getY()I"))
     protected int no_void_structures_stopHutVoidGen_SSP(BlockPos instance) {
-        if (instance.getY() <= -48) {
+        if (instance.getY() <= -56) {
             return -16384;
         }
         return instance.getY();
