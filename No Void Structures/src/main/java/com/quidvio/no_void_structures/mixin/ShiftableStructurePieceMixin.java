@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 public class ShiftableStructurePieceMixin {
 
     /**
-     * Stops Desert Pyramids from generating in the void.
+     * Stops Desert Pyramids and Jungle Pyramids from generating in the void.
      *
      * Because it is a legacy structure, it uses some unique placement and requires special treatment.
      * Specifically, finds the minimum height under the generation surface to generate at.
@@ -23,7 +23,7 @@ public class ShiftableStructurePieceMixin {
      * @return the altered sampled height.
      */
     @Redirect(method = "Lnet/minecraft/structure/ShiftableStructurePiece;adjustToMinHeight(Lnet/minecraft/world/WorldAccess;I)Z", at = @At(value = "INVOKE", target = "Lnet/minecraft/util/math/BlockPos;getY()I"))
-    protected int no_void_structures_stopDesertPyramidVoidGen_SSP(BlockPos instance) {
+    protected int no_void_structures_stopPyramidVoidGen_SSP(BlockPos instance) {
         if (instance.getY() <= -48) {
             return -1024;
         }
@@ -31,9 +31,9 @@ public class ShiftableStructurePieceMixin {
     }
 
     /**
-     * Stops Witch Huts and Jungle Pyramids from generating in the void.
+     * Stops Witch Huts from generating in the void.
      *
-     * Again legacy structure shenanigans.
+     * Again legacy structure shenanigans. Typically this is used by Jungle Pyramids as well, but the JungleTempleGeneratorMixin changes this.
      * Specifically, this finds the average terrain height under the structure to generate at.
      *
      * If the y-level of one of the sampled surface positions is -48 or less.
@@ -44,7 +44,7 @@ public class ShiftableStructurePieceMixin {
      * @return the altered sampled height.
      */
     @Redirect(method = "Lnet/minecraft/structure/ShiftableStructurePiece;adjustToAverageHeight(Lnet/minecraft/world/WorldAccess;Lnet/minecraft/util/math/BlockBox;I)Z", at = @At(value = "INVOKE", target = "Lnet/minecraft/util/math/BlockPos;getY()I"))
-    protected int no_void_structures_stopOtherPyramidVoidGen_SSP(BlockPos instance) {
+    protected int no_void_structures_stopHutVoidGen_SSP(BlockPos instance) {
         if (instance.getY() <= -48) {
             return -16384;
         }
