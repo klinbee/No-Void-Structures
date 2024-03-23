@@ -16,6 +16,7 @@
   "mixins": [
     "no_void_structures.mixins.json"
   ],
+  "accessWidener" : "no_void_structures.accesswidener",
   "depends": {
     "fabricloader": ">=0.15.7",
     "fabric": "*",
