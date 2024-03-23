@@ -4,6 +4,8 @@
   "package": "com.quidvio.no_void_structures.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "OceanRuinGeneratorMixin",
+    "PoolStructurePieceMixin",
     "ShiftableStructurePieceMixin",
     "StructureMixin"
   ],
