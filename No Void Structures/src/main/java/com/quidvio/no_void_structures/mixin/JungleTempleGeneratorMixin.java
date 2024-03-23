@@ -11,7 +11,6 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 @Mixin(JungleTempleGenerator.class)
 public class JungleTempleGeneratorMixin {
 
-
     /**
      * Adjusts the Jungle Pyramid generation to use the adjustToMinHeight method rather than adjustToAverageHeight.
      * This doesn't help with void generation, but makes it less awkward for cases where it is on the edge of islands.
