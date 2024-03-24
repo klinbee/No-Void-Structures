@@ -15,6 +15,8 @@ public class DesertTempleGeneratorMixin {
      *
      * Stops pillaring by altering the getter fields used by a for loop that's used to iterate over the entire bottom surface.
      *
+     * This is done because it can pillar down an island or into the void and  it looks weird.
+     *
      * @param instance unused
      * @return 0, so the for loop escapes early.
      */

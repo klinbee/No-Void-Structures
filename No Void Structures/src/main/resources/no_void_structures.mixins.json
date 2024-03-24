@@ -9,7 +9,8 @@
     "OceanRuinGeneratorMixin",
     "PoolStructurePieceMixin",
     "ShiftableStructurePieceMixin",
-    "StructureMixin"
+    "StructureMixin",
+    "WoodlandMansionStructureMixin"
   ],
   "client": [
   ],
