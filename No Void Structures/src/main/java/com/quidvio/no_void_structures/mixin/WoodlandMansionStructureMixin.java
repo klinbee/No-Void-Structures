@@ -21,17 +21,17 @@ public class WoodlandMansionStructureMixin {
     private int mansionYLevel;
 
     /**
-     * Stops Mansions from pillaring down.
+     * Makes Mansions only pillar down 5 blocks, instead of until it hits a block.
      *
-     * Stops pillaring by changing the result of world.getBottomY to 5 blocks below the Mansion's Y level.
+     * Stops pillaring down far by changing the result of world.getBottomY() to 5 blocks below the Mansion's Y level.
      *
-     * This is done because it can pillar down an island or into the void and it looks weird.
+     * This is done because it can pillar down into the void and it looks weird.
      *
      * @param instance unused
      * @return 5 blocks below the mansion's y-level
      */
     @Redirect(method = "Lnet/minecraft/world/gen/structure/WoodlandMansionStructure;postPlace(Lnet/minecraft/world/StructureWorldAccess;Lnet/minecraft/world/gen/StructureAccessor;Lnet/minecraft/world/gen/chunk/ChunkGenerator;Lnet/minecraft/util/math/random/Random;Lnet/minecraft/util/math/BlockBox;Lnet/minecraft/util/math/ChunkPos;Lnet/minecraft/structure/StructurePiecesList;)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/StructureWorldAccess;getBottomY()I"))
-    private int no_void_structure_mansionPillarnt(StructureWorldAccess instance) {
+    private int no_void_structure_modifyMansionPillaring_WMS(StructureWorldAccess instance) {
         return mansionYLevel-5;
     }
 
@@ -48,8 +48,8 @@ public class WoodlandMansionStructureMixin {
      * @param ci used to cancel the pillaring
      */
     @Inject(method = "Lnet/minecraft/world/gen/structure/WoodlandMansionStructure;postPlace(Lnet/minecraft/world/StructureWorldAccess;Lnet/minecraft/world/gen/StructureAccessor;Lnet/minecraft/world/gen/chunk/ChunkGenerator;Lnet/minecraft/util/math/random/Random;Lnet/minecraft/util/math/BlockBox;Lnet/minecraft/util/math/ChunkPos;Lnet/minecraft/structure/StructurePiecesList;)V", at = @At("HEAD"))
-    private void no_void_structure_mansionPillarNot(StructureWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockBox box, ChunkPos chunkPos, StructurePiecesList pieces, CallbackInfo ci) {
+    private void no_void_structure_getMansionYLevel_WMS(StructureWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockBox box, ChunkPos chunkPos, StructurePiecesList pieces, CallbackInfo ci) {
         this.mansionYLevel = pieces.getBoundingBox().getMinY();
     }
-    
+
 }
