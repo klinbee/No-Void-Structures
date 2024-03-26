@@ -34,8 +34,8 @@ public class MineshaftStructureMixin {
      *
      * Changes it to be from 32 blocks below the surface height and 64 blocks below the surface height.
      *
-     * @param instance the Chunk generator, used to get the minimum y.
-     * @return the new modified y-level basis for Mineshaft generation.
+     * @param instance the Chunk generator, used to get the minimum y
+     * @return the new modified y-level basis for Mineshaft generation
      */
     @Redirect(method = "Lnet/minecraft/world/gen/structure/MineshaftStructure;addPieces(Lnet/minecraft/structure/StructurePiecesCollector;Lnet/minecraft/world/gen/structure/Structure$Context;)I", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/gen/chunk/ChunkGenerator;getSeaLevel()I"))
     private int no_void_structure_mineshaftHeightFix_MS(ChunkGenerator instance) {

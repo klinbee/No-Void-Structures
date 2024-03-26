@@ -18,9 +18,9 @@ public class StructureMixin {
      * Stops void generation by returning "false" for the isValidBiome check (this).
      * Otherwise, uses the current return value.
      *
-     * @param result default usage, also used to get the gen height.
-     * @param context default usage, also used to get the void height.
-     * @param cir the current return value for the isValidBiome check.
+     * @param result default usage, also used to get the gen height
+     * @param context default usage, also used to get the void height
+     * @param cir the current return value for the isValidBiome check
      */
     @Inject(method = "Lnet/minecraft/world/gen/structure/Structure;isBiomeValid(Lnet/minecraft/world/gen/structure/Structure$StructurePosition;Lnet/minecraft/world/gen/structure/Structure$Context;)Z", at = @At("RETURN"), cancellable = true)
     private static void no_void_structures_stopGenericStructureVoidGen_S(Structure.StructurePosition result, Structure.Context context, CallbackInfoReturnable<Boolean> cir) {

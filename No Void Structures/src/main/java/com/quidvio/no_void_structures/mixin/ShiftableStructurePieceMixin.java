@@ -19,8 +19,8 @@ public class ShiftableStructurePieceMixin {
      * Stops void generation by changing the sampled surface y-level to a much lower y-level.
      * Otherwise, leaves the sampled surface y-level unchanged.
      *
-     * @param instance the BlockPos of the sampled height.
-     * @return the altered sampled height.
+     * @param instance the BlockPos of the sampled height
+     * @return the altered sampled height
      */
     @Redirect(method = "Lnet/minecraft/structure/ShiftableStructurePiece;adjustToMinHeight(Lnet/minecraft/world/WorldAccess;I)Z", at = @At(value = "INVOKE", target = "Lnet/minecraft/util/math/BlockPos;getY()I"))
     protected int no_void_structures_stopPyramidVoidGen_SSP(BlockPos instance) {
@@ -40,8 +40,8 @@ public class ShiftableStructurePieceMixin {
      * Stops void generation by changing the sampled surface y-level to a much, much lower y-level. (To offset the average).
      * Otherwise, leaves the sampled surface y-level unchanged.
      *
-     * @param instance the BlockPos of the sampled height.
-     * @return the altered sampled height.
+     * @param instance the BlockPos of the sampled height
+     * @return the altered sampled height
      */
     @Redirect(method = "Lnet/minecraft/structure/ShiftableStructurePiece;adjustToAverageHeight(Lnet/minecraft/world/WorldAccess;Lnet/minecraft/util/math/BlockBox;I)Z", at = @At(value = "INVOKE", target = "Lnet/minecraft/util/math/BlockPos;getY()I"))
     protected int no_void_structures_stopHutVoidGen_SSP(BlockPos instance) {
