@@ -9,6 +9,7 @@
     "MineshaftStructureMixin",
     "OceanRuinGeneratorMixin",
     "PoolStructurePieceMixin",
+    "RuinedPortalStructureMixin",
     "ShiftableStructurePieceMixin",
     "StructureMixin",
     "WoodlandMansionStructureMixin"
