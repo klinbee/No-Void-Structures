@@ -27,7 +27,7 @@ public class ShipwreckGeneratorMixin {
      * @return the altered sampled height
      */
     @Redirect(method = "Lnet/minecraft/structure/ShipwreckGenerator$Piece;generate(Lnet/minecraft/world/StructureWorldAccess;Lnet/minecraft/world/gen/StructureAccessor;Lnet/minecraft/world/gen/chunk/ChunkGenerator;Lnet/minecraft/util/math/random/Random;Lnet/minecraft/util/math/BlockBox;Lnet/minecraft/util/math/ChunkPos;Lnet/minecraft/util/math/BlockPos;)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/StructureWorldAccess;getTopY(Lnet/minecraft/world/Heightmap$Type;II)I"))
-    private int no_void_structures_stopShipwreckVoidGen_SG(StructureWorldAccess worldAccess, Heightmap.Type type, int x, int z) {
+    private int no_void_structures_stopShipwreckVoidGen_SG$P(StructureWorldAccess worldAccess, Heightmap.Type type, int x, int z) {
         int height = worldAccess.getTopY(type,x,z);
         return height <= -56 ? -16384 : height;
     }

@@ -9,7 +9,9 @@
     "MineshaftStructureMixin",
     "OceanRuinPiecesMixin",
     "RuinedPortalStructureMixin",
-    "ScatteredFeaturePieceMixin"
+    "ScatteredFeaturePieceMixin",
+    "ShipwreckPiecesMixin",
+    "WoodlandMansionStructureMixin"
   ],
   "client": [
   ],

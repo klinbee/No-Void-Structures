@@ -45,7 +45,7 @@ public class WoodlandMansionStructureMixin {
      * @param box unused
      * @param chunkPos unused
      * @param pieces used to get the y-level of the bottom of the Mansion
-     * @param ci used to cancel the pillaring
+     * @param ci unused
      */
     @Inject(method = "Lnet/minecraft/world/gen/structure/WoodlandMansionStructure;postPlace(Lnet/minecraft/world/StructureWorldAccess;Lnet/minecraft/world/gen/StructureAccessor;Lnet/minecraft/world/gen/chunk/ChunkGenerator;Lnet/minecraft/util/math/random/Random;Lnet/minecraft/util/math/BlockBox;Lnet/minecraft/util/math/ChunkPos;Lnet/minecraft/structure/StructurePiecesList;)V", at = @At("HEAD"))
     private void no_void_structure_getMansionYLevel_WMS(StructureWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockBox box, ChunkPos chunkPos, StructurePiecesList pieces, CallbackInfo ci) {
