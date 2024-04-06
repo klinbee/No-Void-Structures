@@ -5,7 +5,11 @@
   "compatibilityLevel": "JAVA_17",
   "mixins": [
     "DesertPyramidPieceMixin",
-    "JungleTemplePieceMixin"
+    "JungleTemplePieceMixin",
+    "MineshaftStructureMixin",
+    "OceanRuinPiecesMixin",
+    "RuinedPortalStructureMixin",
+    "ScatteredFeaturePieceMixin"
   ],
   "client": [
   ],
