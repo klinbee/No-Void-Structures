@@ -8,9 +8,11 @@
     "JungleTemplePieceMixin",
     "MineshaftStructureMixin",
     "OceanRuinPiecesMixin",
+    "PoolElementStructurePieceMixin",
     "RuinedPortalStructureMixin",
     "ScatteredFeaturePieceMixin",
     "ShipwreckPiecesMixin",
+    "StructureMixin",
     "WoodlandMansionStructureMixin"
   ],
   "client": [
