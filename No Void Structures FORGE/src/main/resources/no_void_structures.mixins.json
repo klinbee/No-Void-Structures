@@ -2,7 +2,8 @@
   "required": true,
   "minVersion": "0.8",
   "package": "com.quidvio.no_void_structures_mod.mixin",
-  "compatibilityLevel": "JAVA_17",
+  "compatibilityLevel": "JAVA_8",
+  "refmap": "no_void_structures.refmap.json",
   "mixins": [
     "DesertPyramidPieceMixin",
     "JungleTemplePieceMixin",
