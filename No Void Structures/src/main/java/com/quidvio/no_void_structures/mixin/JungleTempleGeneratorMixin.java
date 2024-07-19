@@ -1,8 +1,6 @@
 package com.quidvio.no_void_structures.mixin;
 
 
-import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
-import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import net.minecraft.structure.JungleTempleGenerator;
 import net.minecraft.util.math.BlockBox;
 import net.minecraft.world.WorldAccess;
@@ -23,8 +21,8 @@ public class JungleTempleGeneratorMixin {
      * @param i default usage, represents the delta y
      * @return boolean representing the successful generation or not
      */
-    @WrapOperation(method = "generate(Lnet/minecraft/world/StructureWorldAccess;Lnet/minecraft/world/gen/StructureAccessor;Lnet/minecraft/world/gen/chunk/ChunkGenerator;Lnet/minecraft/util/math/random/Random;Lnet/minecraft/util/math/BlockBox;Lnet/minecraft/util/math/ChunkPos;Lnet/minecraft/util/math/BlockPos;)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/structure/JungleTempleGenerator;adjustToAverageHeight(Lnet/minecraft/world/WorldAccess;Lnet/minecraft/util/math/BlockBox;I)Z"))
-    private boolean no_void_structures_jungleTempleUseMinHeight_JTG(JungleTempleGenerator jungleTempleGenerator, WorldAccess worldAccess, BlockBox blockBox, int i, Operation<Boolean> original) {
+    @Redirect(method = "Lnet/minecraft/structure/JungleTempleGenerator;generate(Lnet/minecraft/world/StructureWorldAccess;Lnet/minecraft/world/gen/StructureAccessor;Lnet/minecraft/world/gen/chunk/ChunkGenerator;Lnet/minecraft/util/math/random/Random;Lnet/minecraft/util/math/BlockBox;Lnet/minecraft/util/math/ChunkPos;Lnet/minecraft/util/math/BlockPos;)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/structure/JungleTempleGenerator;adjustToAverageHeight(Lnet/minecraft/world/WorldAccess;Lnet/minecraft/util/math/BlockBox;I)Z"))
+    private boolean no_void_structures_jungleTempleUseMinHeight_JTG(JungleTempleGenerator jungleTempleGenerator, WorldAccess worldAccess, BlockBox blockBox, int i) {
         return jungleTempleGenerator.adjustToMinHeight(worldAccess,i);
     }
 
