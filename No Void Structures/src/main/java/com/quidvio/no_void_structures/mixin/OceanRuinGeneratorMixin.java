@@ -25,7 +25,7 @@ public class OceanRuinGeneratorMixin {
      * @param end unused
      * @param cir used to get the returned getGenerationY value
      */
-    @Inject(method = "getGenerationY(Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/world/BlockView;Lnet/minecraft/util/math/BlockPos;)I", at = @At("RETURN"), cancellable = true)
+    @Inject(method = "Lnet/minecraft/structure/OceanRuinGenerator$Piece;getGenerationY(Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/world/BlockView;Lnet/minecraft/util/math/BlockPos;)I", at = @At("RETURN"), cancellable = true)
     private void no_void_structures_stopOceanRuinVoidGen_ORG$P(BlockPos start, BlockView world, BlockPos end, CallbackInfoReturnable<Integer> cir){
         if (cir.getReturnValue() <= -56) {
             cir.setReturnValue(-1024);

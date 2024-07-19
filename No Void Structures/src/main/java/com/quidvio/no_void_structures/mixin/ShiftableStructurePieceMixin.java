@@ -1,7 +1,5 @@
 package com.quidvio.no_void_structures.mixin;
 
-import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
-import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import net.minecraft.structure.ShiftableStructurePiece;
 import net.minecraft.util.math.BlockPos;
 import org.spongepowered.asm.mixin.Mixin;
@@ -24,13 +22,14 @@ public class ShiftableStructurePieceMixin {
      * @param instance the BlockPos of the sampled height
      * @return the altered sampled height
      */
-    @WrapOperation(method = "adjustToMinHeight", at = @At(value = "INVOKE", target = "Lnet/minecraft/util/math/BlockPos;getY()I"))
-    protected int no_void_structures_stopPyramidVoidGen_SSP2(BlockPos instance, Operation<Integer> original) {
+    @Redirect(method = "Lnet/minecraft/structure/ShiftableStructurePiece;adjustToMinHeight(Lnet/minecraft/world/WorldAccess;I)Z", at = @At(value = "INVOKE", target = "Lnet/minecraft/util/math/BlockPos;getY()I"))
+    protected int no_void_structures_stopPyramidVoidGen_SSP(BlockPos instance) {
         if (instance.getY() <= -56) {
             return -1024;
         }
-        return original.call(instance);
+        return instance.getY();
     }
+
     /**
      * Stops Witch Huts from generating in the void.
      *
@@ -44,8 +43,8 @@ public class ShiftableStructurePieceMixin {
      * @param instance the BlockPos of the sampled height
      * @return the altered sampled height
      */
-    @WrapOperation(method = "adjustToAverageHeight", at = @At(value = "INVOKE", target = "Lnet/minecraft/util/math/BlockPos;getY()I"))
-    protected int no_void_structures_stopHutVoidGen_SSP(BlockPos instance, Operation<Integer> original) {
+    @Redirect(method = "Lnet/minecraft/structure/ShiftableStructurePiece;adjustToAverageHeight(Lnet/minecraft/world/WorldAccess;Lnet/minecraft/util/math/BlockBox;I)Z", at = @At(value = "INVOKE", target = "Lnet/minecraft/util/math/BlockPos;getY()I"))
+    protected int no_void_structures_stopHutVoidGen_SSP(BlockPos instance) {
         if (instance.getY() <= -56) {
             return -16384;
         }
