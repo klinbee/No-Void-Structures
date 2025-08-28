@@ -1,0 +1,24 @@
+{
+  "pack": {
+    "description": [
+      {
+        "color": "#fff45e",
+        "text": "No Void Structures"
+      },
+      "\n",
+      {
+        "color": "#AAAAAA",
+        "text": "Made by "
+      },
+      {
+        "color": "#ffbbbb",
+        "text": "Klinbee"
+      }
+    ],
+    "pack_format": 15,
+    "supported_formats": [15, 999]
+  },
+  "overlays": {
+    "entries": []
+  }
+}
