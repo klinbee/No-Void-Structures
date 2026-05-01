@@ -1,0 +1,26 @@
+modLoader="javafml"
+loaderVersion="[4,)"
+license="MIT"
+
+[[mods]]
+modId="no_void_structures"
+version="1.0.0"
+displayName="No Void Structures"
+authors="No-Void-Structures contributors"
+description='''
+Genera datapacks dinámicos para adaptar estructuras (y opcionalmente features) a mundos de islas flotantes.
+'''
+
+[[dependencies.no_void_structures]]
+modId="neoforge"
+type="required"
+versionRange="[21.1,)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.no_void_structures]]
+modId="minecraft"
+type="required"
+versionRange="[1.21.1,1.22)"
+ordering="NONE"
+side="BOTH"
